@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+table {
+    width: 100%;
+  }
+  th{
+    width: 25%;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.acciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rol {
+  font-family: 'Inter';
+  text-align: center;
+}
+
+al {
+  font-family: 'Inter';
+  text-align: center;
+}
