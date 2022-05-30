@@ -7,14 +7,12 @@ import { Component, Inject, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  //***padre****//
 
   opened = false;
- 
- 
+
   constructor() {}
 
   ngOnInit(): void {
   }
- 
+
 }

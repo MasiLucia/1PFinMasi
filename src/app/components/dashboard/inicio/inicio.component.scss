@@ -5,6 +5,16 @@ img {
   height: 60px;
 }
 
+h1 {
+  font-family: 'Inter';
+  text-align: center;
+  letter-spacing: 3px;
+  border-bottom: 1px solid rgb(152, 5, 144);
+  margin: 15px;
+  padding: 20px;
+}
+
+
 .inicio {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,8 +26,9 @@ img {
   border-bottom: 1px solid rgb(152, 5, 144);
   font-family:  'Inter';
   text-align: center;
-  padding: 20px;
+  padding: 60px;
   margin: 15px;
+
 
 
 }
@@ -28,12 +39,10 @@ img {
 
 h2 {
   font-family:  'Inter';
+  letter-spacing: 2px;
 }
 
 .tool {
   font-family:  'Inter';
 }
 
-mat-toolbar {
-  background-color: rgba(128, 128, 128, 0.196);
-}

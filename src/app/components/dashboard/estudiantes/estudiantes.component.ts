@@ -11,6 +11,7 @@ import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.co
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante.component';
 
+
 @Component({
   selector: 'app-estudiantes',
   templateUrl: './estudiantes.component.html',
@@ -34,7 +35,7 @@ export class EstudiantesComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private _estudiantesService: EstudiantesService,private _snackBar: MatSnackBar, private router: Router ,public dialog: MatDialog)  { }
+  constructor( private _estudiantesService: EstudiantesService,private _snackBar: MatSnackBar, private router: Router ,public dialog: MatDialog)  { }
 
   ngOnInit(): void {
     this.validaRol();

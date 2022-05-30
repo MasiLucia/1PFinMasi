@@ -1,14 +1,14 @@
 [
     {
-        "nombre":"Dashboard",
+        "nombre":"Inicio",
         "redirect":"/dashboard"
     },
     {
-        "nombre":"Lista",
+        "nombre":"Lista estudiantes",
         "redirect":"/dashboard/estudiantes"
     },
     {
-        "nombre":"Editar",
+        "nombre":"Usuarios",
         "redirect":"/dashboard/reportes"
     }
 ]

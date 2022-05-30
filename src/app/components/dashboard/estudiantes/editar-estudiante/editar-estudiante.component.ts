@@ -69,7 +69,7 @@ volver(){
 inicializar(estudiante:Estudiantes) {
 
   this.form = this.fb.group({
-    estudiante:  ["",  [Validators.required]],
+    estudiante:  ["",  [Validators.required, Validators.maxLength(10), Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?){2,4}$/)]],
     curso:  ["",  [Validators.required]],
     nota: ["",  [Validators.required]],
     usuario:  ["", [Validators.required]],

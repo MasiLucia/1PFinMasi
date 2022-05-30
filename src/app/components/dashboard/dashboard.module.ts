@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditarEstudianteComponent } from './estudiantes/editar-estudiante/editar-estudiante.component';
+import { ApellidoPipeModule } from 'src/app/pipes/apellido.pipe';
 
 
 
@@ -31,13 +32,16 @@ import { EditarEstudianteComponent } from './estudiantes/editar-estudiante/edita
     TwentyDirective,
     FooterComponent,
     EditarEstudianteComponent,
+
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ApellidoPipeModule
+
   ]
 
 
