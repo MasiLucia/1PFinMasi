@@ -1,4 +1,4 @@
-import { Menu } from './../interfaces/menu';
+import { Menu } from '../shared/interfaces/menu';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

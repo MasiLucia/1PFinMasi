@@ -4,11 +4,15 @@
         "redirect":"/dashboard"
     },
     {
-        "nombre":"Lista estudiantes",
+        "nombre":"Estudiantes",
         "redirect":"/dashboard/estudiantes"
     },
     {
-        "nombre":"Usuarios",
-        "redirect":"/dashboard/reportes"
+      "nombre":"Inscripciones",
+      "redirect":"/dashboard/inscripciones"
+  },
+    {
+        "nombre":"Cursos",
+        "redirect":"/dashboard/cursos"
     }
 ]

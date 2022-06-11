@@ -1,4 +1,6 @@
 import { Component, Inject, Input, OnInit, Output } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
+import { Menu } from '../../shared/interfaces/menu';
 
 
 @Component({
@@ -8,11 +10,30 @@ import { Component, Inject, Input, OnInit, Output } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  opened = false;
+    menu: Menu[]=[];
+    opened = false;
+    admin: boolean = false;
+    constructor(private menuService: MenuService ) { }
 
-  constructor() {}
+    ngOnInit(): void {
+      this.loadView();
+    }
 
-  ngOnInit(): void {
+    loadView(){
+      this.cargarMenu();
+    }
+
+    cargarMenu(): void {
+      this.menuService.getMenu().subscribe(data => {
+        this.menu = data;
+      });
+    }
+    ingresarAdmin(){
+      this.admin = true;
+    }
+    ingresarUsuario(){
+      this.admin = false;
+    }
+
   }
 
-}

@@ -1,21 +1,22 @@
 
-import { TwentyDirective } from 'src/app/directivas/twenty.directive';
-import { ReportesComponent } from './reportes/reportes.component';
-import { EstudiantesComponent } from './estudiantes/estudiantes.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { SharedModule } from './../shared/shared.module';
+import { TwentyDirective } from 'src/app/shared/directivas/twenty.directive';
+import { NavbarComponent } from '../../core/navbar/navbar.component';
+import { InicioComponent } from '../../core/inicio/inicio.component';
+import { MaterialModule } from '../material/material.module';
 import { Inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { CrearEstudianteComponent } from './estudiantes/crear-estudiante/crear-estudiante.component';
-import { FooterComponent } from './footer/footer.component';
+import { CrearEstudianteComponent } from './feature-inscripciones/crear-estudiante/crear-estudiante.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EditarEstudianteComponent } from './estudiantes/editar-estudiante/editar-estudiante.component';
-import { ApellidoPipeModule } from 'src/app/pipes/apellido.pipe';
+import { EditarEstudianteComponent } from './feature-inscripciones/editar-estudiante/editar-estudiante.component';
+import { ApellidoPipeModule } from 'src/app/shared/pipes/apellido.pipe';
+import { FooterComponent } from 'src/app/core/footer/footer.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { ListaEstudiantesComponent } from './feature-estudiantes/estudiantes/listaEstudiantes.component';
+import { EstudiantesComponent } from './feature-inscripciones/estudiantes/estudiantes.component';
+import { CursosComponent } from './feature-cursos/cursos/cursos.component';
 
 
 
@@ -26,18 +27,20 @@ import { ApellidoPipeModule } from 'src/app/pipes/apellido.pipe';
     DashboardComponent,
     InicioComponent,
     NavbarComponent,
-    EstudiantesComponent,
-    ReportesComponent,
     CrearEstudianteComponent,
     TwentyDirective,
-    FooterComponent,
     EditarEstudianteComponent,
+    FooterComponent,
+    ReportesComponent,
+    ListaEstudiantesComponent,
+    EstudiantesComponent,
+    CursosComponent
 
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule,
+    MaterialModule,
     FormsModule,
     MatDialogModule,
     ApellidoPipeModule

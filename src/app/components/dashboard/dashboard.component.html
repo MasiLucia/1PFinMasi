@@ -5,15 +5,11 @@
 <mat-sidenav-container class="contenedor">
   <mat-sidenav mode="side" [(opened)]="opened">
 <div class="side">
- <a href=""><button class="butn" >Usuarios</button></a>
- <a href=""><button class="butn" >Profesores</button></a>
- <a href=""><button  class="butn">Estudiantes</button></a>
+ <button class="menu" mat-button *ngFor="let item of menu" [routerLink]="item.redirect">{{item.nombre}} </button>
 </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <button class="btn btn-secondary" (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
-
-
     <router-outlet></router-outlet>
 
   </mat-sidenav-content>
