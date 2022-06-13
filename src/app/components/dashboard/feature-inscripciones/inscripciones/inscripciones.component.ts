@@ -1,36 +1,33 @@
+import { InscripcionesService } from '../services/inscripciones.service';
+import { DetalleInscripcionesComponent } from '../detalle-inscripciones/detalle-inscripciones.component';
 import { NavigationExtras, Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { EstudiantesService } from '../../../../services/estudiantes.service';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Estudiantes } from 'src/app/shared/interfaces/estudiantes';
-import { TwentyDirective } from 'src/app/shared/directivas/twenty.directive';
+import { Inscripciones } from 'src/app/shared/interfaces/inscripciones';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { MaterialModule } from 'src/app/components/material/material.module';
-import { Cursos } from 'src/app/shared/interfaces/cursos';
-import { CursosService } from './services/cursos.service';
-import { EditarCursoComponent } from './editar-curso/editar-curso.component';
-import { DetalleCursosComponent } from './detalle-cursos/detalle-cursos.component';
+import { EditarEstudianteComponent } from '../../feature-estudiantes/estudiantes/editar-estudiante/editar-estudiante.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FeatureEstudiantesModule } from '../../feature-estudiantes/feature-estudiantes.module';
 
 
 @Component({
-  selector: 'app-estudiantes',
-  templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.scss']
+  selector: 'app-inscripciones',
+  templateUrl: './inscripciones.component.html',
+  styleUrls: ['./inscripciones.component.scss']
 })
-export class CursosComponent implements OnInit {
+export class InscripcionesComponent implements OnInit {
 
 
   datosUsuario: string;
 
-  listaCursos: Cursos[] = [];
+  listaInscripciones: Inscripciones[] = [];
 
   admin: boolean = false;
 
 
-  displayedColumns: string[] = ['cursoNombre', 'cursoDias','precio','profesor', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'curso', 'dias', 'acciones'];
 
   dataSource = new MatTableDataSource<any>();
 
@@ -38,10 +35,16 @@ export class CursosComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor( private _cursosService: CursosService,private _snackBar: MatSnackBar, private router: Router ,public dialog: MatDialog)  { }
+  constructor(
+
+     private _inscripcionesService:InscripcionesService,
+     private _snackBar: MatSnackBar,
+     private router: Router,
+     public dialog: MatDialog
+     )  { }
 
   ngOnInit(): void {
-    this.validaRol();
+
     this.loadView();
   }
 
@@ -61,7 +64,7 @@ export class CursosComponent implements OnInit {
     }
   }
   loadView(){
-    this.cargarCursos();
+    this.cargarInscripciones();
     this.validaRol()
   }
   applyFilter(event: Event) {
@@ -72,16 +75,16 @@ export class CursosComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort
   }
-  cargarCursos(){
-    this.listaCursos = this._cursosService.getCursos();
-    this.dataSource = new MatTableDataSource(this.listaCursos);
+  cargarInscripciones(){
+    this.listaInscripciones = this._inscripcionesService.getInscripciones();
+    this.dataSource = new MatTableDataSource(this.listaInscripciones);
     this.ngAfterViewInit();
   }
 
-  eliminarCursos(index: number){
+  eliminarInscripciones(index: number){
     console.log(index);
-    this._cursosService.eliminarCursos(index);
-    this.cargarCursos();
+    this._inscripcionesService.eliminarInscripciones(index);
+    this.cargarInscripciones();
     this._snackBar.open('Estudiante eliminado con exito','', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
@@ -90,19 +93,19 @@ export class CursosComponent implements OnInit {
   }
 
   openDialog2(id_delform:number): void{
-    const estudiante = this._cursosService.getCursos().find(c => c.id === id_delform);
-    const dialogRef = this.dialog.open(DetalleCursosComponent, {
+    const estudiante = this._inscripcionesService.getInscripciones().find(c => c.id === id_delform);
+    const dialogRef = this.dialog.open(DetalleInscripcionesComponent, {
       data: estudiante,
       width: '1250px',
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      this.cargarCursos();
+      this.cargarInscripciones();
     });
   }
 
-  editarEstudiante(id:number){
+  editarInscripcion(id:number){
     this._snackBar.open('Registro de estudiante editado','', {
      horizontalPosition: 'center',
      verticalPosition: 'top',
@@ -121,8 +124,8 @@ export class CursosComponent implements OnInit {
 
 
  openDialog(id_delform:number): void {
-  const estudiante = this._cursosService.getCursos().find(c => c.id === id_delform);
-  const dialogRef = this.dialog.open(EditarCursoComponent, {
+  const estudiante = this._inscripcionesService.getInscripciones().find(c => c.id === id_delform);
+  const dialogRef = this.dialog.open(EditarEstudianteComponent, {
     data: estudiante,
     width: '1250px',
 
@@ -131,7 +134,8 @@ export class CursosComponent implements OnInit {
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
     console.log(result);
-    this.cargarCursos();
+    this.cargarInscripciones();
   });
 }
+
 }

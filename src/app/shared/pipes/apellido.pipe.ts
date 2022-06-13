@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Pipe, PipeTransform } from '@angular/core';
-import { EstudiantesComponent } from '../../components/dashboard/feature-inscripciones/estudiantes/estudiantes.component';
+// import { EstudiantesComponent } from '../../components/dashboard/feature-inscripciones/estudiantes/estudiantes.component';
 import { Estudiantes } from '../interfaces/estudiantes';
 import { ListaEstudiantesComponent } from 'src/app/components/dashboard/feature-estudiantes/estudiantes/listaEstudiantes.component';
 

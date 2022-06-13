@@ -2,12 +2,18 @@ export interface Estudiantes {
   id: number;
   nombre: string;
   apellido: string;
-   curso: string;
-   nota: number;
+  curso: string;
+  nota: number;
   usuario: string;
 }
 
-// export interface Inscripciones {
-//   inscripciones: [{}]
+export interface EstudiantesLista {
+  id: number;
+  nombre: string;
+  apellido: string;
+  edad:number;
+  correo: string;
+  telefono: number;
 
-// }
+
+}

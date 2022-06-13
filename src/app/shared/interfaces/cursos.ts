@@ -2,8 +2,9 @@ import { Estudiantes } from "./estudiantes";
 
 export interface Cursos {
   id: number;
-  curso: string;
-  horario: string;
+  cursoNombre: string;
+  cursoDias: string;
   precio: number;
   profesor: string;
+  detalle:string
 }
