@@ -36,7 +36,7 @@ export class DetalleComponent implements OnInit {
       edad:  estudiante.edad,
       correo: estudiante.correo,
       telefono:  estudiante.telefono,
-      cursos: CursosService
+      cursos: this.cursosService.getCursos()
     })
   }
 

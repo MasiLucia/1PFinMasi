@@ -9,7 +9,7 @@ export class ListaEstudiantesService {
 
   ListaEstudiantes=  [
     {id:1,nombre: "Juan Carlos",apellido:"Martinez", edad:25,telefono:115512215, correo: 'algo@ejemplo'},
-    {id:2,nombre: "Juan Carlos",apellido:"Martinez",edad: 30, telefono: 561654215, correo: 'algo@ejemplo'},
+    {id:2,nombre: "Juan Carlos",apellido:"Gomez",edad: 30, telefono: 561654215, correo: 'algo@ejemplo'},
     {id:3,nombre: "Neri", apellido:"Ballanti", edad: 23, telefono: 156498714654 , correo: 'algo@ejemplo'},
     {id:4,nombre: "Julio", apellido:"Rodriguez", edad: 19, telefono: 6516541645 , correo: 'algo@ejemplo'},
     {id:5,nombre: "Juana", apellido:"Bustos", edad: 29, telefono: 935484645454 , correo: 'algo@ejemplo'},

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cursos } from 'src/app/shared/interfaces/cursos';
 import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
+import { CursosComponent } from '../cursos.component';
 
 @Component({
   selector: 'app-detalle-cursos',
@@ -11,18 +12,21 @@ import { CrearCursoComponent } from '../crear-curso/crear-curso.component';
   styleUrls: ['./detalle-cursos.component.scss']
 })
 export class DetalleCursosComponent implements OnInit {
-
   detalle:Cursos;
   value: any = null;
   form: FormGroup;
-
-  constructor( public dialogRef: MatDialogRef<CrearCursoComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<CrearCursoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Cursos,
     private router: Router,
-    private fb : FormBuilder,   ) { const navigation = this.router.getCurrentNavigation();
-      this.value = navigation?.extras?.state;}
+    private fb : FormBuilder,
+  ) {
+    const navigation = this.router.getCurrentNavigation();
+    this.value = navigation?.extras?.state;
+    }
 
   ngOnInit(): void {
+    this.inicializar(this.data);
   }
 
   inicializar(curso:Cursos) {

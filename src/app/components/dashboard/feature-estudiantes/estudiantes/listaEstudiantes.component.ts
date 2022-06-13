@@ -88,7 +88,7 @@ export class ListaEstudiantesComponent implements OnInit {
     const estudiante = this._estudiantesListaService.getEstudiantes().find(c => c.id === id_delform);
     const dialogRef = this.dialog.open(DetalleComponent, {
       data: estudiante,
-      width: '1250px',
+      width: '600px',
 
     });
 

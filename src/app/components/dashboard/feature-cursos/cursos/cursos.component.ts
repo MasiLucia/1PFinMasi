@@ -93,10 +93,10 @@ export class CursosComponent implements OnInit {
   }
 
   openDialog2(id_delform:number): void{
-    const estudiante = this._cursosService.getCursos().find(c => c.id === id_delform);
+    const curso = this._cursosService.getCursos().find(c => c.id === id_delform);
     const dialogRef = this.dialog.open(DetalleCursosComponent, {
-      data: estudiante,
-      width: '1250px',
+      data: curso,
+      width: '600px',
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
