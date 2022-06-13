@@ -13,6 +13,7 @@ import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante
 import { DetalleComponent } from '../estudiantes/detalle/detalle.component';
 
 
+
 @Component({
   selector: 'app-lista-estudiantes',
   templateUrl: './listaEstudiantes.component.html',

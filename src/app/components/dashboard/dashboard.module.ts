@@ -25,7 +25,7 @@ import { FooterComponent } from 'src/app/core/footer/footer.component';
 import { FeatureInscripcionesModule } from './feature-inscripciones/feature-inscripciones.module';
 import { CrearListaEstudiantesComponent } from './feature-estudiantes/estudiantes/crear-lista-estudiantes/crear-lista-estudiantes.component';
 import { DetalleCursosComponent } from './feature-cursos/cursos/detalle-cursos/detalle-cursos.component';
-
+import { ApellidoPipeModule } from 'src/app/shared/pipes/apellido.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import { DetalleCursosComponent } from './feature-cursos/cursos/detalle-cursos/d
     DetalleCursosComponent,
     InscripcionesComponent,
     CrearInscripcionComponent,
-    EditarEstudianteComponent
+    EditarEstudianteComponent,
 
     ],
   imports: [
@@ -57,11 +57,13 @@ import { DetalleCursosComponent } from './feature-cursos/cursos/detalle-cursos/d
     FeatureInscripcionesModule,
     FeatureCursosModule,
     FeatureEstudiantesModule,
+    ApellidoPipeModule
     ], exports: [
     MaterialModule,
     FeatureInscripcionesModule,
     FeatureCursosModule,
     FeatureEstudiantesModule,
+    ApellidoPipeModule
 
 
   ]

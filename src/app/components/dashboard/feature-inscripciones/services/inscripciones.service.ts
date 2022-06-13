@@ -11,7 +11,7 @@ export class InscripcionesService {
 
   inscripciones=  [
     {id:1,nombre: "Juan Carlos",apellido:"Martinez",curso:'react',dias:"Lunes y Miercoles"},
-    {id:2,nombre: "Juan Carlos",apellido:"Martinez",curso:'angular',dias:" Martes y Jueves"},
+    {id:2,nombre: "Juan Carlos",apellido:"Gomez",curso:'angular',dias:" Martes y Jueves"},
     {id:3,nombre: "Neri", apellido:"Ballanti", curso:'vueJS',dias:"Lunes y Miercoles"},
     {id:4,nombre: "Julio", apellido:"Rodriguez",curso:'angular',dias:"Martes y Jueves"},
     {id:5,nombre: "Juana", apellido:"Bustos", curso:'react',dias:"Lunes y Miercoles"},

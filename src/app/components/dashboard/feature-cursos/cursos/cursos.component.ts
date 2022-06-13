@@ -1,18 +1,16 @@
-import { NavigationExtras, Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { EstudiantesService } from '../../../../services/estudiantes.service';
+import { DetalleCursosComponent } from './detalle-cursos/detalle-cursos.component';
+import { CursosService } from './services/cursos.service';
+import {  Router } from '@angular/router';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Estudiantes } from 'src/app/shared/interfaces/estudiantes';
-import { TwentyDirective } from 'src/app/shared/directivas/twenty.directive';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { MaterialModule } from 'src/app/components/material/material.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Cursos } from 'src/app/shared/interfaces/cursos';
-import { CursosService } from './services/cursos.service';
 import { EditarCursoComponent } from './editar-curso/editar-curso.component';
-import { DetalleCursosComponent } from './detalle-cursos/detalle-cursos.component';
+
+
 
 
 @Component({
@@ -21,7 +19,6 @@ import { DetalleCursosComponent } from './detalle-cursos/detalle-cursos.componen
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent implements OnInit {
-
 
   datosUsuario: string;
 
@@ -38,10 +35,16 @@ export class CursosComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor( private _cursosService: CursosService,private _snackBar: MatSnackBar, private router: Router ,public dialog: MatDialog)  { }
+  constructor(
+
+     private _cursosService:CursosService,
+     private _snackBar: MatSnackBar,
+     private router: Router,
+     public dialog: MatDialog
+     )  { }
 
   ngOnInit(): void {
-    this.validaRol();
+
     this.loadView();
   }
 
@@ -134,4 +137,5 @@ export class CursosComponent implements OnInit {
     this.cargarCursos();
   });
 }
+
 }
