@@ -10,6 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { EditarEstudianteComponent } from '../../feature-estudiantes/estudiantes/editar-estudiante/editar-estudiante.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FeatureEstudiantesModule } from '../../feature-estudiantes/feature-estudiantes.module';
+import { EditarInscripcionComponent } from '../editar-inscripcion/editar-inscripcion.component';
 
 
 @Component({
@@ -125,7 +126,7 @@ export class InscripcionesComponent implements OnInit {
 
  openDialog(id_delform:number): void {
   const estudiante = this._inscripcionesService.getInscripciones().find(c => c.id === id_delform);
-  const dialogRef = this.dialog.open(EditarEstudianteComponent, {
+  const dialogRef = this.dialog.open(EditarInscripcionComponent, {
     data: estudiante,
     width: '1250px',
 
