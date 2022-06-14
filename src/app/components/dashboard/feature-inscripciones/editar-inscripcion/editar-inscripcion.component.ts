@@ -50,6 +50,8 @@ export class EditarInscripcionComponent implements OnInit {
   editEstudiante(form:any){
     const formInscripciones: Inscripciones={
       id: this.data.id,
+      id_estudiante:1,
+      id_curso:1,
       nombre: this.form.value.estudiante,
       apellido: this.data.apellido,
       curso: this.form.value.curso,

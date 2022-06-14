@@ -1,4 +1,4 @@
-import { Estudiantes, EstudiantesLista } from 'src/app/shared/interfaces/estudiantes';
+import { EstudiantesLista } from 'src/app/shared/interfaces/estudiantes';
 import { Injectable } from '@angular/core';
 
 
@@ -9,7 +9,7 @@ export class ListaEstudiantesService {
 
   ListaEstudiantes=  [
     {id:1,nombre: "Juan Carlos",apellido:"Martinez", edad:25,telefono:115512215, correo: 'algo@ejemplo'},
-    {id:2,nombre: "Juan Carlos",apellido:"Gomez",edad: 30, telefono: 561654215, correo: 'algo@ejemplo'},
+    {id:2,nombre: "Juan",apellido:"Gomez",edad: 30, telefono: 561654215, correo: 'algo@ejemplo'},
     {id:3,nombre: "Neri", apellido:"Ballanti", edad: 23, telefono: 156498714654 , correo: 'algo@ejemplo'},
     {id:4,nombre: "Julio", apellido:"Rodriguez", edad: 19, telefono: 6516541645 , correo: 'algo@ejemplo'},
     {id:5,nombre: "Juana", apellido:"Bustos", edad: 29, telefono: 935484645454 , correo: 'algo@ejemplo'},
@@ -42,7 +42,11 @@ export class ListaEstudiantesService {
   editEstudiante(estudiante: EstudiantesLista) {
     const index = this.ListaEstudiantes.findIndex(c => c.id === estudiante.id);
     this.ListaEstudiantes[index] = estudiante;
-
-
   }
+
+  maxId(estudiantes:EstudiantesLista[]){
+    return Math.max.apply(null,
+      estudiantes.map(function(estudiante) { return estudiante.id; }));
+  }
+
 }

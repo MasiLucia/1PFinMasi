@@ -8,9 +8,15 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-form-field class="ancho">
+
           <mat-label>Estudiante</mat-label>
-          <input matInput autocomplete="off" formControlName="estudiante">
-        </mat-form-field>
+             <mat-select  formControlName="estudiante">
+              <mat-option *ngFor="let item of estudiantes" [value]="item.id">{{item.nombre}}</mat-option>
+            </mat-select>
+         
+        </mat-form-field> 
+
+          
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="3" [rowspan]="5">
@@ -22,7 +28,7 @@
         <mat-form-field  class="ancho">
           <mat-label>Cursos</mat-label>
           <mat-select  formControlName="curso">
-            <mat-option *ngFor="let item of cursos" [value]="item">{{item}}</mat-option>
+            <mat-option *ngFor="let curso of cursos" [value]="curso.id">{{curso.cursoNombre}}</mat-option>
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>

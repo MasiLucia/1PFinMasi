@@ -12,8 +12,20 @@
         <p>
           <mat-list-item role="listitem">Tel: {{form.value.telefono}} </mat-list-item>
         </p>
+       
+        <div>
+          
+        </div>
         <p>
-          <mat-list-item role="listitem">Cursos: {{form.value.cursos}} </mat-list-item>
+        <mat-list-item role="listitem">Cursos:
+         
+             <tr *ngFor="let curso of cursitos; let i = index">
+                <td>{{curso.cursoNombre}}</td>
+             </tr>
+         
+
+         
+         </mat-list-item>
         </p>
         <a (click)="cerrar()" class="btn btn-primary">Cerrar</a>
       </div>

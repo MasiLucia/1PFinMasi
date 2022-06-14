@@ -24,6 +24,7 @@ export class CrearCursoComponent implements OnInit {
       this.value = navigation?.extras?.state;
 
  this.form = this.fb.group({
+   id:[this._cursosService.maxId(this._cursosService.getCursos())+1],
    cursoNombre:  ["",  [Validators.required, Validators.maxLength(40), ]],
    cursoDias:  ["",  [Validators.required]],
    precio: ["",  [Validators.required]],
@@ -33,6 +34,12 @@ export class CrearCursoComponent implements OnInit {
  });}
 
   ngOnInit(): void {
+    console.log("id del ultimo curso registrado");
+    console.log(this._cursosService.maxId(this._cursosService.getCursos()));
+
+
+    //console.log("Lista de cursos");
+    //console.log(this._cursosService.getCursos());
   }
 
   guardar(){

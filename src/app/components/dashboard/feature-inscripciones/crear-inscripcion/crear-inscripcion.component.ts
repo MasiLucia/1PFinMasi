@@ -4,6 +4,10 @@ import { Router, NavigationExtras } from '@angular/router';
 import {  Inscripciones } from 'src/app/shared/interfaces/inscripciones';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
+import { CursosService } from '../../feature-cursos/cursos/services/cursos.service';
+import { Cursos } from 'src/app/shared/interfaces/cursos';
+import { Estudiantes, EstudiantesLista } from 'src/app/shared/interfaces/estudiantes';
+import { ListaEstudiantesService } from '../../feature-estudiantes/services/listaEstudiantes.service';
 
 
 
@@ -15,13 +19,16 @@ import { Component, Inject, OnInit } from '@angular/core';
 
 
 export class CrearInscripcionComponent implements OnInit {
-  cursos: any[] = ['react', 'angular', 'vue', 'react y angular', 'react y vue', 'angular y vue'];
+  cursos: Cursos[] = this._icursoService.getCursos();
+  estudiantes: EstudiantesLista[] = this._estudiantesService.getEstudiantes();
   dias: any[] = ['lunes y miercoles', 'martes y jueves', 'sabado', 'miercoles y viernes'];
   form: FormGroup;
   value: any = null;
   constructor(
                private fb : FormBuilder,
                private _inscripcionesService: InscripcionesService,
+               private _icursoService: CursosService,
+               private _estudiantesService: ListaEstudiantesService,
                private router: Router,
                private _snackBar: MatSnackBar,
 
@@ -29,7 +36,10 @@ export class CrearInscripcionComponent implements OnInit {
                  this.value = navigation?.extras?.state;
 
             this.form = this.fb.group({
-              estudiante:  ["",  [Validators.required, Validators.maxLength(40), Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?){2,4}$/)]],
+              id:[this._inscripcionesService.maxId(this._inscripcionesService.getInscripciones())+1],
+              id_estudiante:[""],
+              id_curso:[""],
+              estudiante:  ["",  [Validators.required, Validators.maxLength(40)]],
               curso:  ["",  [Validators.required]],
               dias: ["",  [Validators.required]],
 
@@ -44,13 +54,15 @@ export class CrearInscripcionComponent implements OnInit {
   guardar(){
     const estudiante: Inscripciones={
       id: this.form.value.id,
-      nombre: this.form.value.estudiante,
+      id_curso:this.form.value.curso,
+      id_estudiante:this.form.value.estudiante,
+      nombre: this.estudiantes[this.form.value.estudiante-1].nombre,
       apellido: this.form.value.apellido,
-      curso: this.form.value.curso,
+      curso: this.cursos[this.form.value.curso-1].cursoNombre,
       dias: this.form.value.dias,
-
     }
-
+console.log("estudiante a guardar");
+console.log(estudiante);
     this._inscripcionesService.agregarInscripciones(estudiante);
     this.router.navigate(['/dashboard/inscripciones']);
     this._snackBar.open(`Inscripcion creada exitosamente`, '', {

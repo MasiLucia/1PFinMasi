@@ -21,17 +21,17 @@ export class CrearListaEstudiantesComponent implements OnInit {
                private _estudiantesService: ListaEstudiantesService,
                private router: Router,
                private _snackBar: MatSnackBar,
-
             ) {
-
                  const navigation = this.router.getCurrentNavigation();
                  this.value = navigation?.extras?.state;
 
     this.form = this.fb.group({
-      estudiante:  ["",  [Validators.required, Validators.maxLength(10)]],
+      id:[this._estudiantesService.maxId(this._estudiantesService.getEstudiantes())+1],
+      nombre:  ["",  [Validators.required, Validators.maxLength(10)]],
+      apellido: ["",  [Validators.required, Validators.maxLength(10)]],
       edad:  ["",  [Validators.required]],
       correo: ["",  [Validators.required]],
-       telefono:  ["", [Validators.required]],
+      telefono:  ["", [Validators.required]],
     })
    }
 
@@ -43,13 +43,14 @@ export class CrearListaEstudiantesComponent implements OnInit {
   guardar(){
     const estudiante: EstudiantesLista={
       id: this.form.value.id,
-      nombre: this.form.value.estudiante,
+      nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       edad: this.form.value.edad,
       correo: this.form.value.correo,
       telefono: this.form.value.telefono,
     }
-
+    console.log("Estudiante a guardar");
+    console.log(estudiante);
     this._estudiantesService.agregarEstudiante(estudiante);
     this.router.navigate(['/dashboard/estudiantes']);
     this._snackBar.open('Estudiante agregado exitosamente','', {
